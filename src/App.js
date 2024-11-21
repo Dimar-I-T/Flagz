@@ -12,7 +12,7 @@ function Begin() {
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get("http://localhost:5000").then(result => {
+    axios.get("https://flagz-api-dimar-i-ts-projects.vercel.app/?vercelToolbarCode=2n1wZuG82JQEuJ_").then(result => {
       if (result.data === "Success"){
         navigate('/home');
       }
@@ -68,11 +68,11 @@ function Home() {
   
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get("http://localhost:5000/home").then(result => {
+    axios.get("https://flagz-api-dimar-i-ts-projects.vercel.app/?vercelToolbarCode=2n1wZuG82JQEuJ_/home").then(result => {
       setData(result.data);
     })
 
-    axios.get("http://localhost:5000/f").then(result => {
+    axios.get("https://flagz-api-dimar-i-ts-projects.vercel.app/?vercelToolbarCode=2n1wZuG82JQEuJ_/f").then(result => {
       setDataF(result.data);
     })
   }, []);
@@ -88,7 +88,7 @@ function Home() {
   }
 
   const gkPlay = () => {
-    axios.get("http://localhost:5000/home").then(result => {
+    axios.get("https://flagz-api-dimar-i-ts-projects.vercel.app/?vercelToolbarCode=2n1wZuG82JQEuJ_/home").then(result => {
       setData(result.data);
     })
 
@@ -98,7 +98,7 @@ function Home() {
   }
 
   const stopPlaying = () => {
-    axios.post("http://localhost:5000/home", {score: score});
+    axios.post("https://flagz-api-dimar-i-ts-projects.vercel.app/?vercelToolbarCode=2n1wZuG82JQEuJ_/home", {score: score});
     setBenar(2);
     setStop(1);
   }
@@ -107,7 +107,7 @@ function Home() {
     e.preventDefault();
     setBanyak(banyak + 1);
     if (banyak < 196){
-      axios.post("http://localhost:5000/cek", {answer, dataF: dataF[indeks].country}).then((response) => {
+      axios.post("https://flagz-api-dimar-i-ts-projects.vercel.app/?vercelToolbarCode=2n1wZuG82JQEuJ_/cek", {answer, dataF: dataF[indeks].country}).then((response) => {
         if (response.data == "1"){
           setBenar(1);
           setBBenar(bBenar + 1);
@@ -288,7 +288,7 @@ function Reg() {
   axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/register", {valUser, valPass}).then((response) => {
+    axios.post("https://flagz-api-dimar-i-ts-projects.vercel.app/?vercelToolbarCode=2n1wZuG82JQEuJ_/register", {valUser, valPass}).then((response) => {
       const resp = JSON.stringify(response.data.success, null, 2)
       if (resp == "true"){
         setBisa(1);
@@ -367,7 +367,7 @@ function Login() {
   axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/login", {valUser, valPass}).then((response) => {
+    axios.post("https://flagz-api-dimar-i-ts-projects.vercel.app/?vercelToolbarCode=2n1wZuG82JQEuJ_/login", {valUser, valPass}).then((response) => {
       const resp = JSON.stringify(response.data.success, null, 2)
       if (resp == "true"){
         setBisa(1);
