@@ -68,12 +68,6 @@ function Home() {
   
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get("http://localhost:5000").then(result => {
-      if (result.data !== "Success"){
-        navigate('/');
-      }
-    })
-
     axios.get("http://localhost:5000/home").then(result => {
       setData(result.data);
     })
