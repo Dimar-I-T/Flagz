@@ -349,7 +349,7 @@ function Reg() {
 
               <form onSubmit={handleSubmit}>
                 <input onChange = {changeUser} placeholder="Enter your username" value = {valUser} class="absolute left-[10vw] top-[13vw] w-[30vw] h-[3vw] px-[0.9vw] rounded-[1vw] font-roboto text-[2vw] focus:outline-none"/>
-                <input onChange = {changePass} placeholder="Enter your username" value = {valPass} class="absolute left-[10vw] top-[18vw] w-[30vw] h-[3vw] px-[0.9vw] rounded-[1vw] font-roboto text-[2vw] focus:outline-none"
+                <input onChange = {changePass} placeholder="Enter your password" value = {valPass} class="absolute left-[10vw] top-[18vw] w-[30vw] h-[3vw] px-[0.9vw] rounded-[1vw] font-roboto text-[2vw] focus:outline-none"
                 type="password"/>
                 <button type="submit" class="absolute bg-[#5c9dd6ff] left-[10vw] top-[23vw] w-[30vw] h-[3vw] opacity-90 hover:opacity-100 rounded-[1vw] text-[white] font-roboto text-[2vw]"> SIGN UP </button>
               </form>
