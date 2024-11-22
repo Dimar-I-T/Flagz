@@ -30,7 +30,7 @@ const verifyUs = (req, res, next) => {
     }
 }
 
-app.get('/api/', verifyUs, async (req, res) => {
+app.get('/api', verifyUs, async (req, res) => {
     return res.json("Success");
 })
 
