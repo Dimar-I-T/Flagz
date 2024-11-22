@@ -30,11 +30,11 @@ const verifyUs = (req, res, next) => {
     }
 }
 
-app.get('/', verifyUs, async (req, res) => {
+app.get('/api/', verifyUs, async (req, res) => {
     return res.json("Success");
 })
 
-app.get('/f', async (req, res) => {
+app.get('/api/f', async (req, res) => {
     let ar = [];
     let hasil = [];
     for (let i = 0; i < f.length; i++){
@@ -54,7 +54,7 @@ app.get('/f', async (req, res) => {
     return res.json(hasil);
 })
 
-app.get('/home', verifyUs, async (req, res) => {
+app.get('/api/home', verifyUs, async (req, res) => {
     try{
         const u_id = req.user;
         const user = await User.findById(u_id.id);
@@ -65,7 +65,7 @@ app.get('/home', verifyUs, async (req, res) => {
     }
 })
 
-app.post('/home', verifyUs, async (req, res) => {
+app.post('/api/home', verifyUs, async (req, res) => {
     try{
         const u_id = req.user;
         const user = await User.findById(u_id.id);
@@ -82,7 +82,7 @@ app.post('/home', verifyUs, async (req, res) => {
     }
 })
 
-app.post('/cek', verifyUs, async (req, res) => {
+app.post('/api/cek', verifyUs, async (req, res) => {
     try{
         const userid = req.user;
         const user = await User.findById(userid.id);
@@ -126,7 +126,7 @@ app.post('/cek', verifyUs, async (req, res) => {
     }
 })
 
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
     try{
         const {valUser, valPass} = req.body;
         const user = await User.findOne({username: valUser});
@@ -153,7 +153,7 @@ app.post('/login', async (req, res) => {
     }
 })
 
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
     try{
         const {valUser, valPass} = req.body;
         const hashed = await bcrypt.hash(valPass, 10);
