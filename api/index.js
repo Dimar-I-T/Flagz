@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(cors({
-    origin: ["https://flagz-seven.vercel.app"],
+    origin: ["https://flagz-game.vercel.app"],
     methods: ["GET", "POST"],
     credentials: true
 }));
