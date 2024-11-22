@@ -10,9 +10,10 @@
         "use": "@vercel/node"
       }
     ],
-    "routes":
+    "routes": [
       {
         "src": "/api/(.*)",
         "dest": "/api/index.js"
       }
+    ]
   }
