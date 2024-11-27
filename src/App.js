@@ -328,7 +328,7 @@ function Reg() {
       const resp = JSON.stringify(response.data.success, null, 2)
       if (resp == "true"){
         setBisa(1);
-        navigate('/login');
+        navigate('/home');
       }else{
         setBisa(0);
       }
