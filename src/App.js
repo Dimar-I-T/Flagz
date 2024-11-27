@@ -115,6 +115,10 @@ function Home() {
     setStop(0);
   }
 
+  const navToLog = () => {
+    navigate('/login');
+  }
+
   const stopPlaying = () => {
     axios.post("https://flagz-game.vercel.app/api/home", {score: score});
     setBenar(2);
@@ -175,6 +179,14 @@ function Home() {
         {main == 0 && stop == 0 && <button onClick = {play} className="bg-[#5c9dd6ff] font-bold text-[black] object-center text-[3vw] h-[7vw] w-[20vw] left-[40vw] absolute top-[calc(50%+11vw)] rounded-[2vw] opacity-70 hover:opacity-90 shadow">   
           PLAY
         </button>}
+
+        {main == 0 && stop == 0 && 
+          <button onClick = {navToLog} class="bg transparent underline opacity-90 text-[#5c9dd6ff] text-[2vw] hover:opacity-100 absolute top-[calc(50%+13vw)] left-[27vw]">
+           Log Out
+          </button>
+        }
+
+        
 
         {main == 0 && stop == 0 && <h1 className="font-roboto text-[#b7b7b7] text-[2vw] absolute top-[calc(50%-7vw)] left-[29.7vw]">  
           Top Score
@@ -362,7 +374,7 @@ function Reg() {
               </h1>}
 
               {bisa == 0 && <h1 className="absolute left-[14.5vw] top-[10vw] text-[red] opacity-100 font-roboto text-[1.5vw] z-10">
-                Username already used!
+                Username is already used!
               </h1>}
 
               <form onSubmit={handleSubmit}>
@@ -436,7 +448,7 @@ function Login() {
                 Logged in Successfully!
               </h1>}
 
-              {bisa == 0 && <h1 className="absolute left-[10vw] top-[10vw] text-[red] opacity-100 font-roboto text-[1.5vw] z-10">
+              {bisa == 0 && <h1 className="absolute left-[14.5vw] top-[10vw] text-[red] opacity-100 font-roboto text-[1.5vw] z-10">
                 Username or password is incorrect!
               </h1>}
 
