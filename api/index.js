@@ -163,7 +163,7 @@ app.post('/api/register', async (req, res) => {
         }else{
             const new_user = await new User({username: valUser, password: hashed});
             await new_user.save();
-            const token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: "1d"});
+            const token = jwt.sign({id: new_user.id}, process.env.JWT_SECRET, {expiresIn: "1d"});
             res.cookie("token", token, {
                 httpOnly: true,
                 secure: true, 
