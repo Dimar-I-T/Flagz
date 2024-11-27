@@ -294,7 +294,7 @@ function Home() {
         </h1>}
         
         {(main == 1 && stop == 0 && loading == 0) && 
-          <img src={`https://www.worldometers.info/${dataF[indeks].flag}`} className="h-[14vw] w-[21vw] absolute left-[39vw] top-[calc(50%-8vw)]"></img>
+          <img src={`https://www.worldometers.info/${dataF[indeks].flag}`} className="h-[14vw] w-[21vw] absolute left-[40vw] top-[calc(50%-8vw)]"></img>
         } 
 
       </div>
