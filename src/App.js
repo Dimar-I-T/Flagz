@@ -29,16 +29,28 @@ function Begin() {
 
   return (
     <div className="bg-cover bg-no-repeat bg-center bg-black w-screen h-screen">
-          <div className="flex justify-center items-center w-full h-full relative">
+          <div className="flex justify-center items-center w-full h-full">
             <div
-              className="relative bg-[black] object-center h-4/5 w-1/2 rounded-[5vw] opacity-80 shadow"
+              className="relative bg-[black] object-center aspect-[3/2] w-[60vw] max-w-[900px] max-h-[600px] flex flex-col items-center gap-6 rounded-[5vw] opacity-80 shadow"
             >
-            <h1 className="text-center font-bold object-top mt-[1.5vw] text-[white] opacity-100 font-roboto text-[4vw] z-10">
+            <h1 className="font-bold text-[white] mt-[1.5vw] opacity-100 font-roboto text-[4vw]">
                 Welcome to <span className="text-[#5c9dd6ff]">Flagz.</span>
             </h1>
 
-            <button onClick = {navToReg} class="absolute bg-[#5c9dd6ff] left-[10vw] top-[15vw] w-[30vw] h-[3vw] opacity-90 hover:opacity-100 rounded-[1vw] text-[white] font-roboto text-[2vw]"> SIGN UP </button>
-            <button onClick = {navToLog} class="absolute bg-[#5c9dd6ff] left-[10vw] top-[20vw] w-[30vw] h-[3vw] opacity-90 hover:opacity-100 rounded-[1vw] text-[white] font-roboto text-[2vw]"> LOG IN </button>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-[2vw]">
+              <button
+                onClick={navToReg}
+                className="bg-[#5c9dd6ff] h-[4vw] w-[30vw] left-[40vw] top-[45vw] opacity-90 hover:opacity-100 rounded-[1vw] text-[white] font-roboto text-[2vw]"
+              >
+                SIGN UP
+              </button>
+              <button
+                onClick={navToLog}
+                className="bg-[#5c9dd6ff] h-[4vw] w-[30vw] left-[40vw] top-[50vw] opacity-90 hover:opacity-100 rounded-[1vw] text-[white] font-roboto text-[2vw]"
+              >
+                LOG IN
+              </button>
+            </div>
               </div>
             </div>
           </div>
@@ -149,137 +161,143 @@ function Home() {
   
   return (
     <div className="bg-cover bg-no-repeat bg-center bg-black w-screen h-screen">
-      <div className="big-cover bg-no-repeat bg-center bg-[black] opacity-90 w-screen h-screen">
-        {main == 0 && stop == 0 && <h1 className="absolute font-roboto text-[white] text-[4vw] left-[20vw] top-[4vw]"> Welcome,  
+      <div className="absolute inset-0 flex flex-col justify-center items-center bg-center bg-[black] opacity-90">
+        {main == 0 && stop == 0 && <h1 className="font-roboto text-[white] text-left w-full pl-[22vw] text-[4vw] absolute top-[calc(50%-20vw)]"> Welcome,  
           <span className="text-[#5c9dd6ff]">
             &nbsp;{data?.username}!          
           </span> </h1>}
         
-        {main == 0 && stop == 0 && <div className="absolute bg-[#aaaaaa] object-center h-[20vw] w-[60vw] transform -translate-x-1/2 left-1/2 top-[12vw] rounded-[5vw] opacity-20 shadow"> </div>}
+        {main == 0 && stop == 0 &&
+         <div className="bg-[#aaaaaa] h-[20vw] w-[60vw] rounded-[5vw] absolute top-[calc(50%-12vw)] opacity-20 shadow">
+          
+         </div>}
         
-        {main == 0 && stop == 0 && <button onClick = {play} className="absolute group  bg-[#5c9dd6ff] font-bold text-[black] object-center text-[3vw] h-[7vw] w-[20vw] left-[40vw] top-[36vw] rounded-[2vw] opacity-70 hover:opacity-90 shadow">   
+        {main == 0 && stop == 0 && <button onClick = {play} className="bg-[#5c9dd6ff] font-bold text-[black] object-center text-[3vw] h-[7vw] w-[20vw] left-[40vw] absolute top-[calc(50%+11vw)] rounded-[2vw] opacity-70 hover:opacity-90 shadow">   
           PLAY
         </button>}
 
-        {main == 1 && stop == 0 && 
-          <button onClick = {stopPlaying} className="absolute group  bg-[#5c9dd6ff] font-bold text-[black] object-center text-[2vw] h-[18vw] w-[12vw] left-[77vw] top-[12.7vw] rounded-[2vw] opacity-70 hover:opacity-90 shadow">   
-            STOP <br /> PLAYING
-          </button>
-        }
-        
-        {main == 0 && stop == 0 && <h1 className="absolute font-roboto text-[#b7b7b7] text-[2vw] transform left-[29vw] top-[17vw]">  
+        {main == 0 && stop == 0 && <h1 className="font-roboto text-[#b7b7b7] text-[2vw] absolute top-[calc(50%-7vw)] left-[29.7vw]">  
           Top Score
         </h1>}
-
-        {main == 0 && stop == 0 && <h1 className="absolute font-roboto text-[#5c9dd6ff] font-bold text-[4vw] transform -translate-x-1/3 left-1/3 top-[19vw]">  
-        {data?.top_score}
-        </h1>}
         
-        {main == 0 && stop == 0 && <h1 className="absolute font-roboto text-[#b7b7b7] text-[2vw] transform -translate-x-1/2 left-1/2 top-[17vw]">  
+        {main == 0 && stop == 0 && <h1 className="font-roboto text-[#b7b7b7] text-[2vw] absolute top-[calc(50%-7vw)]">  
           Total Flags
         </h1>}
         
-        {main == 0 && stop == 0 && <h1 className="absolute text-center font-roboto text-[#5c9dd6ff] font-bold text-[4vw] transform -translate-x-1/2 left-1/2 top-[19vw]">  
-        {data?.total_flags}
-        </h1>}
-        
-        {main == 0 && stop == 0 && <h1 className="absolute font-roboto text-[#b7b7b7] text-[2vw] left-[61.7vw] top-[17vw]">  
+        {main == 0 && stop == 0 && <h1 className="font-roboto text-[#b7b7b7] absolute top-[calc(50%-7vw)] text-[2vw] left-[61.7vw]">  
           Total Plays
         </h1>}
         
-        {main == 0 && stop == 0 && <h1 className="absolute font-roboto text-[#5c9dd6ff] font-bold text-[4vw] transform -translate-x-2/3 left-2/3 top-[19vw]">  
-        {data?.total_plays}
-        </h1>}
-        
         {main == 1 && stop == 0 && 
-          <h1 className="absolute font-roboto text-[white] text-[4vw] transform -translate-x-1/2 left-1/2 top-[1vw]">
+          <button onClick = {stopPlaying} className="group  bg-[#5c9dd6ff] font-bold text-[black] object-center text-[2vw] h-[18vw] w-[12vw] rounded-[2vw] opacity-70 hover:opacity-90 shadow absolute left-[78vw] top-[calc(50%-10vw)]">   
+            STOP <br /> PLAYING
+          </button>
+        }
+
+        {main == 1 && stop == 0 && 
+          <h1 className="font-roboto text-[white] text-[4vw] transform absolute top-[calc(50%-22vw)]">
             What flag is this?
           </h1>
         }
       
         {main == 1 && stop == 0 && 
-          <div className="absolute bg-[#aaaaaa] object-center h-[25vw] w-[50vw] transform -translate-x-1/2 left-1/2 top-[8vw] rounded-[5vw] opacity-20 shadow"> </div>
+          <div className="bg-[#aaaaaa] object-center h-[25vw] w-[50vw] transform -translate-x-1/2 left-1/2 rounded-[5vw] opacity-20 shadow absolute top-[calc(50%-14vw)]"> </div>
         }
 
         {(main == 1 && stop == 0 && benar == 2) && 
           <form onSubmit={handleSubmit}>
-            <input onChange = {inpAnswer} placeholder="Enter your answer here" value = {answer} class="absolute placeholder-left-[25vw] placeholder-[white] bg-[#6c6c6c] opacity-50 left-[25vw] top-[36vw] w-[34vw] h-[5vw] px-[0.9vw] text-white rounded-[1vw] font-roboto text-[2vw] focus:outline-none"/>
-            {benar == 2 && <button type="submit" class="absolute group bg-[#5c9dd6ff] font-bold text-[black] object-center text-[2vw] w-[13vw] h-[5vw] left-[61vw] top-[36vw] rounded-[1vw] opacity-70 hover:opacity-90 shadow"> SUBMIT </button>}
+            <input onChange = {inpAnswer} placeholder="Enter your answer here" value = {answer} class="placeholder-left-[25vw] placeholder-[white] bg-[#6c6c6c] opacity-50 w-[34vw] h-[5vw] px-[0.9vw] text-white rounded-[1vw] font-roboto text-[2vw] focus:outline-none absolute left-[25vw] top-[calc(50%+14vw)]"/>
+            {benar == 2 && <button type="submit" class="group bg-[#5c9dd6ff] font-bold text-[black] object-center text-[2vw] w-[13vw] h-[5vw] rounded-[1vw] opacity-70 hover:opacity-90 shadow absolute left-[62vw] top-[calc(50%+14vw)]"> SUBMIT </button>}
           </form>
         }
 
         {loading == 1 && 
-          <h1 className="absolute font-roboto text-[3vw] text-[white] -translate-x-1/2 left-1/2 top-[16vw]">
+          <h1 className="font-roboto text-[3vw] text-[white] absolute top-[calc(50%-5vw)]">
             ...
           </h1>
         }
 
         {(benar == 0 && loading == 0) &&
-          <h1 className="absolute font-roboto text-center text-[red] text-[2vw] transform -translate-x-1/2 left-1/2 top-[9vw]">
+          <h1 className="font-roboto text-center text-[red] text-[2vw] transform -translate-x-1/2 left-1/2 absolute top-[calc(50%-12.5vw)]">
             Wrong answer! It's {countryBenar} 
           </h1>
         }
         
         {(benar == 1 && loading == 0) &&
-          <h1 className="absolute font-roboto text-center text-[green] text-[2vw] transform -translate-x-1/2 left-1/2 top-[9vw]">
+          <h1 className="font-roboto text-center text-[green] text-[2vw] transform -translate-x-1/2 left-1/2 absolute top-[calc(50%-12.5vw)]">
             Correct! 
           </h1>
         }
 
-        { (benar == 1 || benar == 0) &&
-          <button onClick = {lanjut} class="absolute group bg-[#5c9dd6ff] font-bold text-[black] object-center text-[2vw] w-[13vw] h-[5vw] left-[61vw] top-[36vw] rounded-[1vw] opacity-70 hover:opacity-90 shadow"> NEXT </button> 
+        {(benar == 1 || benar == 0) &&
+          <button onClick = {lanjut} class="group bg-[#5c9dd6ff] font-bold text-[black] object-center text-[2vw] w-[13vw] h-[5vw] rounded-[1vw] opacity-70 hover:opacity-90 shadow absolute left-[62vw] top-[calc(50%+14vw)]"> NEXT </button> 
         }
 
         {stop == 1 &&
-          <div className="absolute bg-[#313131] h-[35vw] w-2/6 transform -translate-x-1/2 left-1/2 top-[8vw] rounded-[5vw] opacity-80 shadow"></div>
+          <div className="bg-[#313131] h-[40vw] w-[38vw] transform -translate-x-1/2 left-1/2 rounded-[5vw] opacity-80 shadow absolute top-[calc(50%-20vw)]"></div>
         }
         
         {stop == 1 &&
-          <h1 className="absolute font-roboto text-[white] text-[4vw] transform -translate-x-1/2 left-1/2 top-[1vw]">
+          <h1 className="font-roboto text-[white] text-[4vw] transform -translate-x-1/2 left-1/2 absolute top-[calc(50%-19vw)]">
             Well Done!
           </h1>
         }
 
         {stop == 1 &&
-          <button onClick = {gkPlay} className="absolute group  bg-[#5c9dd6ff] font-bold text-[black] object-center text-[3vw] h-[6vw] w-[16vw] transform -translate-x-1/2 left-1/2 top-[34vw] rounded-[2vw] opacity-70 hover:opacity-90 shadow">   
+          <button onClick = {gkPlay} className="group  bg-[#5c9dd6ff] font-bold text-[black] object-center text-[3vw] h-[6vw] w-[16vw] transform -translate-x-1/2 left-1/2 rounded-[2vw] opacity-70 hover:opacity-90 shadow absolute top-[calc(50%+11vw)]">   
             OK
           </button>
         }
 
-        {stop == 1 && 
-        <h1 className="absolute font-roboto text-[#b7b7b7] transform -translate-x-1/2 left-1/2 text-[1.8vw] top-[11vw]">  
+        { stop == 1 &&
+        <h1 className="font-roboto text-[#b7b7b7] transform -translate-x-1/2 left-1/2 text-[1.8vw] absolute top-[calc(50%-11.5vw)]">  
           Correct Answers
         </h1>}
 
-        {stop == 1 && 
-        <h1 className="absolute text-center font-roboto text-[#5c9dd6ff] font-bold text-[3vw] transform -translate-x-1/2 left-1/2 top-[12.6vw]">  
+        { stop == 1 &&
+        <h1 className="text-center font-roboto text-[#5c9dd6ff] font-bold text-[3vw] transform -translate-x-1/2 left-1/2 absolute top-[calc(50%-9.5vw)]">  
           {bBenar}
         </h1>}
 
-        {stop == 1 && 
-        <h1 className="absolute font-roboto text-[#b7b7b7] transform -translate-x-1/2 left-1/2 text-[1.8vw] top-[18vw]">  
+        { stop == 1 &&
+        <h1 className="font-roboto text-[#b7b7b7] transform -translate-x-1/2 left-1/2 text-[1.8vw] absolute top-[calc(50%-4.8vw)]">  
           Wrong Answers
         </h1>}
 
-        {stop == 1 && 
-        <h1 className="absolute text-center font-roboto text-[#5c9dd6ff] font-bold text-[3vw] transform -translate-x-1/2 left-1/2 top-[19.6vw]">  
+        { stop == 1 &&
+        <h1 className="text-center font-roboto text-[#5c9dd6ff] font-bold text-[3vw] transform -translate-x-1/2 left-1/2 absolute top-[calc(50%-2.8vw)]">  
           {bSalah}
         </h1>}
 
-        {stop == 1 && 
-        <h1 className="absolute font-roboto text-[#b7b7b7] transform -translate-x-1/2 left-1/2 text-[1.8vw] top-[25vw]">  
+        { stop == 1 &&
+        <h1 className="font-roboto text-[#b7b7b7] transform -translate-x-1/2 left-1/2 text-[1.8vw] absolute top-[calc(50%+1.9vw)]">  
           Score
         </h1>}
 
-        {stop == 1 && 
-        <h1 className="absolute text-center font-roboto text-[#5c9dd6ff] font-bold text-[3vw] transform -translate-x-1/2 left-1/2 top-[26.6vw]">  
+        { stop == 1 &&
+        <h1 className="text-center font-roboto text-[#5c9dd6ff] font-bold text-[3vw] transform -translate-x-1/2 left-1/2 absolute top-[calc(50%+3.9vw)]">  
           {score}
         </h1>}
 
       </div>
-      {(main == 1 && stop == 0 && loading == 0) && 
-          <img src={`https://www.worldometers.info/${dataF[indeks].flag}`} className="absolute transform -translate-x-1/2 left-1/2 top-[13vw] h-[14vw] w-[21vw]"></img>
+      <div className="flex flex-col">
+        {main == 0 && stop == 0 && <h1 className="font-roboto text-[#5c9dd6ff] font-bold text-[4vw] transform -translate-x-1/3 left-1/3 absolute top-[calc(50%-4.5vw)]">  
+          {data?.top_score}
+        </h1>}
+
+        {main == 0 && stop == 0 && <h1 className="text-center font-roboto text-[#5c9dd6ff] font-bold text-[4vw] transform -translate-x-1/2 left-1/2 absolute top-[calc(50%-4.5vw)]">  
+          {data?.total_flags}
+        </h1>}
+
+        {main == 0 && stop == 0 && <h1 className="font-roboto text-[#5c9dd6ff] font-bold text-[4vw] transform -translate-x-2/3 left-2/3 absolute top-[calc(50%-4.5vw)]">  
+          {data?.total_plays}
+        </h1>}
+        
+        {(main == 1 && stop == 0 && loading == 0) && 
+          <img src={`https://www.worldometers.info/${dataF[indeks].flag}`} className="h-[14vw] w-[21vw] absolute left-[39vw] top-[calc(50%-8vw)]"></img>
         } 
+
+      </div>
     </div>
   )
 }
@@ -329,7 +347,7 @@ function Reg() {
     <div className="bg-cover bg-no-repeat bg-center bg-black w-screen h-screen">
           <div className="flex justify-center items-center w-full h-full relative">
             <div
-              className="relative bg-[black] object-center h-4/5 w-1/2 rounded-[5vw] opacity-80 shadow"
+              className="relative bg-[black] object-center aspect-[3/2] w-[60vw] max-w-[900px] max-h-[600px] flex flex-col items-center gap-6 rounded-[5vw] opacity-80 shadow"
             >
               <h1 className="text-center font-bold object-top mt-[1.5vw] text-[white] opacity-100 font-roboto text-[4vw] z-10">
                 Create Account
@@ -339,19 +357,19 @@ function Reg() {
                 Already have an account? <button onClick = {navToLog} class=" bg transparent opacity-90 text-[#5c9dd6ff] hover:opacity-100"> Login </button>
               </h1>
 
-              {bisa == 1 && <h1 className="absolute left-[10vw] top-[10vw] text-[green] opacity-100 font-roboto text-[1.5vw] z-10">
+              {bisa == 1 && <h1 className="absolute left-[14.5vw] top-[10vw] text-[green] opacity-100 font-roboto text-[1.5vw] z-10">
                 Registered Successfully!
               </h1>}
 
-              {bisa == 0 && <h1 className="absolute left-[10vw] top-[10vw] text-[red] opacity-100 font-roboto text-[1.5vw] z-10">
+              {bisa == 0 && <h1 className="absolute left-[14.5vw] top-[10vw] text-[red] opacity-100 font-roboto text-[1.5vw] z-10">
                 Username already used!
               </h1>}
 
               <form onSubmit={handleSubmit}>
-                <input onChange = {changeUser} placeholder="Enter your username" value = {valUser} class="absolute left-[10vw] top-[13vw] w-[30vw] h-[3vw] px-[0.9vw] rounded-[1vw] font-roboto text-[2vw] focus:outline-none"/>
-                <input onChange = {changePass} placeholder="Enter your password" value = {valPass} class="absolute left-[10vw] top-[18vw] w-[30vw] h-[3vw] px-[0.9vw] rounded-[1vw] font-roboto text-[2vw] focus:outline-none"
+                <input onChange = {changeUser} placeholder="Enter your username" value = {valUser} class="absolute transform -translate-x-1/2 top-[13vw] w-[30vw] h-[3.5vw] px-[0.9vw] rounded-[1vw] font-roboto text-[2vw] focus:outline-none"/>
+                <input onChange = {changePass} placeholder="Enter your password" value = {valPass} class="absolute transform -translate-x-1/2 top-[18vw] w-[30vw] h-[3.5vw] px-[0.9vw] rounded-[1vw] font-roboto text-[2vw] focus:outline-none"
                 type="password"/>
-                <button type="submit" class="absolute bg-[#5c9dd6ff] left-[10vw] top-[23vw] w-[30vw] h-[3vw] opacity-90 hover:opacity-100 rounded-[1vw] text-[white] font-roboto text-[2vw]"> SIGN UP </button>
+                <button type="submit" class="absolute bg-[#5c9dd6ff] transform -translate-x-1/2 top-[23vw] w-[30vw] h-[3.5vw] opacity-90 hover:opacity-100 rounded-[1vw] text-[white] font-roboto text-[2vw]"> SIGN UP </button>
               </form>
             </div>
           </div>
@@ -404,7 +422,7 @@ function Login() {
       <div className="bg-cover bg-no-repeat bg-center bg-black w-screen h-screen">
           <div className="flex justify-center items-center w-full h-full relative">
             <div
-              className="relative bg-[black] object-center h-4/5 w-1/2 rounded-[5vw] opacity-80 shadow"
+              className="relative bg-[black] object-center aspect-[3/2] w-[60vw] max-w-[900px] max-h-[600px] flex flex-col items-center gap-6 rounded-[5vw] opacity-80 shadow"
             >
               <h1 className="text-center font-bold object-top mt-[1.5vw] text-[white] opacity-100 font-roboto text-[4vw] z-10">
                 Log In
@@ -423,10 +441,10 @@ function Login() {
               </h1>}
 
               <form onSubmit={handleSubmit}>
-                <input onChange = {changeUser} placeholder="Enter your username" value = {valUser} class="absolute left-[10vw] top-[13vw] w-[30vw] h-[3vw] rounded-[1vw] px-[0.9vw] font-roboto text-[2vw] focus:outline-none"/>
-                <input onChange = {changePass} placeholder="Enter your password" value = {valPass} class="absolute left-[10vw] top-[18vw] w-[30vw] h-[3vw] rounded-[1vw] px-[0.9vw] font-roboto text-[2vw] focus:outline-none"
+                <input onChange = {changeUser} placeholder="Enter your username" value = {valUser} class="absolute transform -translate-x-1/2 top-[13vw] w-[30vw] h-[3.5vw] px-[0.9vw] rounded-[1vw] font-roboto text-[2vw] focus:outline-none"/>
+                <input onChange = {changePass} placeholder="Enter your password" value = {valPass} class="absolute transform -translate-x-1/2 top-[18vw] w-[30vw] h-[3.5vw] px-[0.9vw] rounded-[1vw] font-roboto text-[2vw] focus:outline-none"
                 type="password"/>
-                <button type="submit" class="absolute bg-[#5c9dd6ff] left-[10vw] top-[23vw] w-[30vw] h-[3vw] opacity-90 hover:opacity-100 rounded-[1vw] text-[white] font-roboto text-[2vw]"> LOG IN </button>
+                <button type="submit" class="absolute bg-[#5c9dd6ff] transform -translate-x-1/2 top-[23vw] w-[30vw] h-[3.5vw] opacity-90 hover:opacity-100 rounded-[1vw] text-[white] font-roboto text-[2vw]"> LOG IN </button>
               </form>
             </div>
           </div>
