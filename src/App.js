@@ -113,6 +113,8 @@ function Home() {
     setBenar(2);
     setMain(0);
     setStop(0);
+    setBBenar(0);
+    setScore(0);
     setAnswer("");
   }
 
