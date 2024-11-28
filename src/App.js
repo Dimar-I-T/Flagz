@@ -113,6 +113,7 @@ function Home() {
     setBenar(2);
     setMain(0);
     setStop(0);
+    setAnswer("");
   }
 
   const navToLog = () => {
